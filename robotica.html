@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto Robótica | Festejando a conexão campo-cidade</title>
+        <link rel="icon" href="img/folha-twemoji.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!--botão de acessibilidade-->
+        <input type="checkbox" id="acessivel" hidden>
+        <label for="acessivel" class="botao-acessibilidade">🅰 Acessível</label>
+
+        <div class="page-wrapper">
+            <header id="top">
+                <img src="img/folha-twemoji.png" alt="Folha verde com três linhas azuis simbolizando vento">
+                <h1>Festejando a conexão campo-cidade</h1>
+                <nav class="header-links">
+                    <a href="index.html"><span aria-hidden="true">&#127968;</span> Home</a>
+                    <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" rel="noopener noreferrer">Agrinho</a>
+                    <a href="contato.html">Contato</a>
+                </nav>
+            </header>
+
+            <main>
+                <section class="caixa-pontilhada">
+                    <div tabindex="0">
+                        <h2 class="title-green">🤖 Bônus: Faça você mesmo!</h2>
+                        <h3>- Objetivo: Criar um medidor de umidade do solo</h3>
+                        <p>Neste tutorial, vamos montar um medidor de umidade do solo usando Arduino e materias de robótica. Este projeto prático é um excelente exemplo de como a tecnologia desenvolvida nas cidades, pode ser aplicada em uma grande plantação ou até mesmo em uma pequena horta no espaço urbano.</p>
+                    </div>
+
+                    <div tabindex="0">
+                        <h3>- Materiais necessários:</h3>
+                        <ul>
+                            <li>1 Computador ou Notebook</li>
+                            <li>1 Placa Arduino</li>
+                            <li>1 Cabo USB</li>
+                            <li>1 Protoboard</li>
+                            <li>1 Sensor de umidade de solo (sonda + módulo)</li>
+                            <li>1 LED verde 5mm</li>
+                            <li>1 LED vermelho 5mm</li>
+                            <li>2 Resistores de 220 Ohms</li>
+                            <li>2 Fios Jumper Fêmea-Fêmea</li>
+                            <li>6 Fios Jumper Macho-Macho</li>
+                        </ul>
+                    </div>
+                    
+                    <div tabindex="0">
+                        <h3>1º Passo - Conectar as peças do sensor</h3>
+                        <p>Use os dois fios Fêmea-Fêmea para conectar a sonda metálica nos dois pinos do módulo comparador.</p>
+                        <img src="img/arduino-tutorial/etapa-1.png" alt="Sonda de umidade e módulo comparador conectados por dois fios.">
+                    </div>
+
+                    <div tabindex="0">
+                        <h3>2º Passo - Conectar o sensor na protoboard</h3>
+                        <p>Encaixe o módulo comparador na protoboard, de forma que seus quatro pinos fiquem em fileiras separadas para facilitar as conexões.</p>
+                        <img src="img/arduino-tutorial/etapa-2.png" alt="Módulo comparador do sensor de umidade encaixado na protoboard.">
+                    </div>
+
+                    <div tabindex="0">
+                        <h3>3º Passo - Ligar o sensor ao Arduino</h3>
+                        <p>Use os fios Macho-Macho para fazer as seguintes conexões:</p>
+                        <ul>
+                            <li>Pino <strong>GND</strong> do módulo para o pino <strong>GND</strong> do Arduino.</li>
+                            <li>Pino <strong>VCC</strong> do módulo para o pino <strong>5V</strong> do Arduino.</li>
+                            <li>Pino <strong>A0</strong> (analógico) do módulo para o pino <strong>A0</strong> do Arduino.</li>
+                        </ul>
+                        <img src="img/arduino-tutorial/etapa-3.png" alt="Fios conectando os pinos GND, VCC e A0 do módulo na protoboard aos pinos correspondentes no Arduino.">
+                    </div>
+                    
+                    <div tabindex="0">
+                        <h3>4º Passo - Adicionar os LEDs e resistores</h3>
+                        <p>Posicione os LEDs na protoboard. O pino menor (negativo) de cada LED deve ir para a linha azul (negativa) da protoboard. Conecte um resistor na mesma fileira do pino maior (positivo) de cada LED.</p>
+                        <img src="img/arduino-tutorial/etapa-4.png" alt="LEDs verde e vermelho posicionados na protoboard com seus respectivos resistores.">
+                    </div>
+
+                    <div tabindex="0">
+                        <h3>5º Passo - Finalizar as conexões com o Arduino</h3>
+                        <p>Faça as últimas conexões:</p>
+                        <ul>
+                            <li>Conecte a linha negativa da protoboard a outro pino <strong>GND</strong> do Arduino.</li>
+                            <li>Conecte o resistor do LED verde à porta digital <strong>3</strong> do Arduino.</li>
+                            <li>Conecte o resistor do LED vermelho à porta digital <strong>4</strong> do Arduino.</li>
+                        </ul>
+                        <img src="img/arduino-tutorial/etapa-5.png" alt="Fios conectando os resistores dos LEDs às portas 3 e 4 do Arduino e a linha negativa ao GND.">
+                    </div>
+
+                    <div tabindex="0">
+                        <h3>Montagem completa!</h3>
+                        <p>Se a montagem estiver correta, seu projeto deve se parecer com a imagem abaixo. Agora, vamos para a programação!</p>
+                        <img src="img/arduino-tutorial/projeto completo.png" alt="Visão geral do circuito completo com Arduino, protoboard, sensor e LEDs todos conectados.">
+                    </div>
+                    
+                    <div tabindex="0">
+                        <h3>Programação e Código</h3>
+                        <p>Conecte o Arduino ao computador com o cabo USB. Abra o <a href="https://www.arduino.cc/en/software/" target="_blank" rel="noopener noreferrer">Arduino IDE</a> (editor na nuvem ou programa instalado). Crie um novo "Sketch", cole o código abaixo e clique em "Upload" para enviar à placa.</p>
+                        <div class="code-container">
+<pre><code>
+/* Programa: Sensor de Umidade do Solo */
+/* Codigo desenvolvido por Robótica Paraná */
+
+/* Definições de pinos para o sensor e para os LEDs */
+#define pino_Sensor A0
+#define pino_LED_Verde 3
+#define pino_LED_Vermelho 4
+
+/* Porcentagem de umidade mínima para iniciar a irrigação */
+int Valor_Critico = 45;
+/* Variável para armazenar o valor analógico do sensor */
+int ValAnalogIn;
+
+void setup() {
+    /* Inicia a comunicação serial com a velocidade de 9600 bauds */
+    Serial.begin(9600);
+    /* Configura os pinos dos LEDs como saída */
+    pinMode(pino_LED_Verde, OUTPUT);
+    pinMode(pino_LED_Vermelho, OUTPUT);
+} /* End Setup */
+
+void loop() {
+    /* Realiza a leitura do sensor e armazena o valor na variável ValAnalogIn */
+    ValAnalogIn = analogRead(pino_Sensor);
+    /* Converte o valor analógico para porcentagem */
+    int Porcento = map(ValAnalogIn, 1023, 0, 0, 100);
+    /* Imprime o valor em Porcento no monitor Serial */
+    Serial.print(Porcento);
+    /* Imprime o símbolo junto ao valor encontrado */
+    Serial.println("%");
+    /* Se a porcentagem for menor ou igual ao valor definido */
+    if (Porcento <= Valor_Critico) {
+        /* Imprime a frase no monitor serial */
+        Serial.println("Umidade baixa!");
+        /* Acende o LED Vermelho */
+        digitalWrite(pino_LED_Vermelho, HIGH);
+        /* Apaga o LED Verde */
+        digitalWrite(pino_LED_Verde, LOW);
+    } /* End if */
+    
+    /* Se não... */
+    else {
+        /* Imprime a frase no monitor serial */
+        Serial.println("Umidade Adequada...");
+        /* Acende o LED Verde */
+        digitalWrite(pino_LED_Verde, HIGH);
+        /* Apaga o LED Vermelho */
+        digitalWrite(pino_LED_Vermelho, LOW);
+    } /* End else */
+    /* Aguarda 1 segundo para reinicializar a nova leitura */
+    delay (1000);
+}/* End Loop */
+</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div tabindex="0">
+                        <h3>Conclusão</h3>
+                        <p>Parabéns! Você montou um sistema que automatiza uma tarefa agrícola, unindo componentes eletrônicos (cidade) a uma necessidade prática (campo). Este projeto é a prova de que, com criatividade e conhecimento, podemos criar soluções incríveis que fortalecem a conexão campo-cidade.</p>
+                        <p>Para visualizar a montagem em detalhes, explore o modelo 3D interativo abaixo.</p>
+                    </div>
+
+                    <section class="modelo-3d" tabindex="0">
+                        <h3>🌱 Veja em 3D: Sensor de Umidade do Solo</h3>
+                        <p>Explore este modelo interativo para ver todos os componentes em detalhes.</p>
+                        <div class="sketchfab-embed-wrapper">
+                            <iframe 
+                                title="Aula 12 - Sensor de Umidade do Solo" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                mozallowfullscreen="true" 
+                                webkitallowfullscreen="true" 
+                                allow="autoplay; fullscreen; xr-spatial-tracking" 
+                                xr-spatial-tracking 
+                                execution-while-out-of-viewport 
+                                execution-while-not-rendered 
+                                web-share 
+                                src="https://sketchfab.com/models/88910f5e2a9242cd845c436eea849a70/embed">
+                            </iframe>
+                        </div>
+                        <p class="creditos-sketchfab">
+                            Modelo: 
+                            <a href="https://sketchfab.com/3d-models/aula-12-sensor-de-umidade-do-solo-88910f5e2a9242cd845c436eea849a70" target="_blank" rel="nofollow">
+                                Aula 12 - Sensor de Umidade do Solo
+                            </a> por 
+                            <a href="https://sketchfab.com/roboticaparana" target="_blank" rel="nofollow">Robótica Paraná</a> no 
+                            <a href="https://sketchfab.com" target="_blank" rel="nofollow">Sketchfab</a>.
+                        </p>
+                    </section>
+                </section>
+            </main>
+
+            <footer>
+                <div>
+                    <p>Site desenvolvido para o Concurso Agrinho 2025</p>
+                    <p>Desenvolvido por Heron Chislinski Pires da Silva</p>
+                    <p>&copy; 2025 - Todos os direitos reservados</p>
+                    <a href="#top">Voltar ao início</a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
